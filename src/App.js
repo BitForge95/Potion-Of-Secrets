@@ -8,35 +8,35 @@ function App() {
 
 
   const fetchRandomSecret = async () => {
-    try {
-      const res = await axios.get("potion-of-secrets-backend-production.up.railway.app/api/secret");
-      if (res.data.data) {
-        setRandomSecret(res.data.data);
-      } else {
-        setRandomSecret("No secrets yet!");
-      }
-    } catch (error) {
-      console.error("Error fetching secret:", error);
-      setRandomSecret("Error fetching secret");
-    }
-  };
+  try {
+    const res = await axios.get(
+      "https://potion-of-secrets-backend-production.up.railway.app/api/secret"
+    );
+    setRandomSecret(res.data.data || "No secrets yet!");
+  } catch (error) {
+    console.error("Error fetching secret:", error);
+    setRandomSecret("Error fetching secret");
+  }
+};
 
-  const addSecret = async (e) => {
-    e.preventDefault();
-    if (!secretInput) return;
+const addSecret = async (e) => {
+  e.preventDefault();
+  if (!secretInput) return;
 
-    try {
-      await axios.post("potion-of-secrets-backend-production.up.railway.app/api/secret", {
-        randomSecret: secretInput,
-      });
-      setSecretInput("");
-      setMessage("Your Secret is Safe within us. Like a Horcrux !")
-      fetchRandomSecret();
-    } catch (error) {
-      setMessage("Sorry Please try adding yor Secret Again");
-      console.error("Error adding secret:", error);
-    }
-  };
+  try {
+    await axios.post(
+      "https://potion-of-secrets-backend-production.up.railway.app/api/secret",
+      { randomSecret: secretInput } 
+    );
+    setSecretInput("");
+    setMessage("Your Secret is Safe within us. Like a Horcrux!");
+    fetchRandomSecret();
+  } catch (error) {
+    setMessage("Sorry, please try adding your Secret again");
+    console.error("Error adding secret:", error);
+  }
+};
+
  
   useEffect(() => {
     fetchRandomSecret();
