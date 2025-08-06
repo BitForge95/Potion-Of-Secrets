@@ -1,13 +1,113 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap');
+
+
+body, html {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  height: 100%;
+  font-family: 'IM Fell English SC', serif;
+  background: linear-gradient(to bottom, #0d1b3d, #1f2e6d);
+  color: #e0eaff;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+.Main-Container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding: 2rem;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3rem;
+  color: #a1c4ff;
+  text-shadow: 0 0 10px #4a90e2, 0 0 20px #7aaeff;
+}
+
+.sub-message {
+  font-size: large;
+}
+
+.Form-Container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.Input-Box {
+  padding: 0.8rem 1rem;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  border: 2px solid #a1c4ff;
+  background-color: rgba(0,0,50,0.6);
+  color: #e0eaff;
+  width: 300px;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.Input-Box:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 15px #1f5fff;
+}
+
+
+button {
+  padding: 0.8rem 2rem;
+  font-size: 1.2rem;
+  color: #0d0d0d;
+  background-color: #4a90e2;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #1f5fff, 0 0 40px #7aaeff;
+}
+
+
+.Random-Secret-Heading {
+  font-size: 2rem;
+  color: #b3e5fc;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 5px #4a90e2;
+}
+
+.Random-Secret {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  background-color: rgba(0,0,50,0.5);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #a1c4ff;
+  min-width: 300px;
+}
+
+
+p {
+  color: #b3e5fc;
+  font-style: italic;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 5px #4a90e2;
+}
+
+
+@media (max-width: 600px) {
+  .Input-Box, .Random-Secret {
+    width: 90%;
+  }
 }
