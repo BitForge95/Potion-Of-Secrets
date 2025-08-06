@@ -9,7 +9,7 @@ function App() {
 
   const fetchRandomSecret = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/api/secret");
+      const res = await axios.get("potion-of-secrets-backend-production.up.railway.app/api/secret");
       if (res.data.data) {
         setRandomSecret(res.data.data);
       } else {
@@ -26,7 +26,7 @@ function App() {
     if (!secretInput) return;
 
     try {
-      await axios.post("http://localhost:3000/api/secret", {
+      await axios.post("potion-of-secrets-backend-production.up.railway.app/api/secret", {
         randomSecret: secretInput,
       });
       setSecretInput("");
